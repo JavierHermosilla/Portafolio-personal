@@ -1,31 +1,93 @@
+export interface ProyectoLink {
+  label: string;
+  href: string;
+  type: "platform" | "repository" | "video";
+}
+
 export interface Proyecto {
   id: number;
-  titulo: string;
-  descripcion: string;
-  youtubeId: string;
+  title: string;
+  category: string;
+  summary: string;
+  details: string[];
+  stack: string[];
+  featured?: boolean;
+  image?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+  youtubeId?: string;
+  links: ProyectoLink[];
 }
 
 export const misProyectos: Proyecto[] = [
   {
     id: 1,
-    titulo: "Proyecto InventPro",
-    // USAMOS BACKTICKS (`) PARA EL TEXTO MULTILÍNEA
-    descripcion: `En este video presento InventPro, una solución integral diseñada para optimizar la gestión de inventario y órdenes de compra en pequeñas y medianas empresas. El enfoque principal fue desarrollar una herramienta escalable, segura y eficiente, aplicando principios de Arquitectura por Capas para separar la lógica de negocio de la interfaz de usuario.
-
-    🛠️ Stack Tecnológico:
-    Frontend: Desarrollado con React.js, enfocado en una experiencia de usuario fluida y reactiva.
-
-    Backend: Construido con Node.js y Express.js, garantizando un procesamiento de datos rápido y confiable.
-
-    Base de Datos: Uso de PostgreSQL para la persistencia de datos estructurados.
-
-    Seguridad: Implementación de JWT (JSON Web Tokens) para autenticación de usuarios y Zod para validación de esquemas de datos.
-
-    Funcionalidades Clave:
-    Gestión dinámica de productos y stock.
-    Control de órdenes de compra con trazabilidad.
-    Módulo de seguridad para acceso restringido de usuarios.
-    Consumo de APIs REST con manejo de estados eficiente.`,
+    title: "HendaFlux",
+    category: "Proyecto principal · SaaS en producción",
+    summary:
+      "Plataforma SaaS de gestión comercial y punto de venta que centraliza ventas, productos, inventario, compras, caja y suscripciones.",
+    details: [
+      "HendaFlux centraliza procesos de gestión comercial y punto de venta en una sola plataforma.",
+      "El proyecto integra autenticación, persistencia de datos, correo transaccional, pagos y despliegue web con el stack indicado.",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Mercado Pago",
+      "Resend",
+      "Vercel",
+    ],
+    featured: true,
+    image: {
+      src: "/hendaflux-logo.png",
+      alt: "Logo de HendaFlux, plataforma SaaS de gestión comercial",
+      width: 220,
+      height: 202,
+    },
+    links: [
+      {
+        label: "Ver plataforma",
+        href: "https://hendaflux.com",
+        type: "platform",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "InventPro",
+    category: "API REST · Proyecto académico grupal",
+    summary:
+      "Proyecto académico desarrollado por un equipo de tres integrantes. Estuve a cargo del backend completo para la gestión de inventario y órdenes de compra.",
+    details: [
+      "Proyecto académico desarrollado por un equipo de tres integrantes. Estuve a cargo del backend completo, mientras los otros dos integrantes desarrollaron el frontend.",
+      "Implementé la API REST, autenticación con JWT, validación con Zod, persistencia en PostgreSQL y endpoints probados mediante Postman.",
+    ],
+    stack: [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "JWT",
+      "Zod",
+      "Postman",
+    ],
     youtubeId: "fwyQtq0Dnyw",
+    links: [
+      {
+        label: "Ver repositorio",
+        href: "https://github.com/JavierHermosilla/inventpro",
+        type: "repository",
+      },
+      {
+        label: "Ver video",
+        href: "https://www.youtube.com/watch?v=fwyQtq0Dnyw",
+        type: "video",
+      },
+    ],
   },
 ];

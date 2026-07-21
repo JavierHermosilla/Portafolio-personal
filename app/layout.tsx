@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const siteUrl = "https://portafolio-personal-zeta-mauve.vercel.app";
+const title =
+  "Javier Hermosilla | Desarrollador Full Stack / Backend Junior";
+const description =
+  "Portafolio de Javier Hermosilla, egresado de Ingeniería en Informática y desarrollador Full Stack / Backend Junior especializado en aplicaciones web y APIs.";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -12,20 +18,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// CONFIGURACIÓN DE METADATOS Y FAVICON PERSONALIZADO
 export const metadata: Metadata = {
-  title: "Javier Hermosilla | Software Developer",
-  description:
-    "Ingeniero en Informática especializado en desarrollo Fullstack con React y Node.js. Egresado de Duoc UC, Generación 2025.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_CL",
+    url: "/",
+    siteName: "Portafolio de Javier Hermosilla",
+    title,
+    description,
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+  },
   icons: {
-    // Apuntamos al archivo jh-icon.svg que tienes en la carpeta /public
-    // Agregamos ?v=2 para forzar al navegador a actualizar el icono
-    icon: [
-      {
-        url: "/jh-icon.png",
-        href: "/jh-icon.png",
-      },
-    ],
+    icon: "/jh-icon.png",
     shortcut: "/jh-icon.png",
     apple: "/jh-icon.png",
   },

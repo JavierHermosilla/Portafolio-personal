@@ -1,67 +1,64 @@
+const processes = [
+  "Análisis de APIs",
+  "Evaluación de costos",
+  "Documentación técnica",
+  "Metodologías ágiles",
+];
+
 export default function ExperienceCard() {
   return (
-    <div className="relative border-l border-slate-800 pl-8 ml-4">
-      {/* Indicador de posición */}
-      <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[6.5px] top-[10px] shadow-[0_0_10px_#3b82f6]"></div>
+    <article className="relative ml-3 border-l border-slate-700 pl-7 md:ml-4 md:pl-8">
+      <div
+        className="absolute left-[-6.5px] top-[10px] h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6]"
+        aria-hidden="true"
+      />
 
-      <div className="mb-12">
-        {/* Cabecera: Cargo y Fecha alineados a los extremos */}
-        <div className="flex flex-col md:flex-row justify-between items-baseline mb-10">
-          <h3 className="text-2xl font-bold text-white uppercase tracking-wider">
-            Apoyo en Desarrollo y Procesos Técnicos
+      <div className="mb-8">
+        <div className="mb-8 flex flex-col items-start justify-between gap-3 md:flex-row md:items-baseline">
+          <h3 className="text-xl font-bold uppercase tracking-wider text-white md:text-2xl">
+            Practicante de Arquitectura de Software | Ripley
           </h3>
-          <span className="text-slate-500 font-mono text-xs tracking-[0.2em] uppercase shrink-0">
-            Ripley Chile • 2025
+          <span className="shrink-0 font-mono text-xs uppercase tracking-[0.18em] text-slate-300">
+            Sept. 2025 – Dic. 2025
           </span>
         </div>
 
-        {/* Grid de 12 columnas para alineación exacta */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Descripción: 9 columnas (75%) */}
-          <div className="md:col-span-9 space-y-6 text-slate-400 text-sm md:text-base leading-relaxed">
-            <p>
-              Lideré el estudio técnico de viabilidad para la integración de
-              sistemas de mensajería externa, evaluando la compatibilidad de
-              APIs y tiempos de respuesta para asegurar el cumplimiento de
-              estándares corporativos.
-            </p>
-            <p>
-              Responsable de documentar procesos técnicos RFC (Request for
-              Comments) y analizar la obsolescencia tecnológica para optimizar
-              la infraestructura de las células de Ecommerce.
-            </p>
+        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-12">
+          <div className="text-sm leading-relaxed text-slate-300 md:col-span-9 md:text-base">
+            <ul className="list-disc space-y-3 pl-5">
+              <li>
+                Analicé la factibilidad técnica y comercial de la integración
+                de un servicio de mensajería de Entel con plataformas de Ripley.
+              </li>
+              <li>
+                Evalué compatibilidad de APIs, costos y posibles impactos
+                técnicos para apoyar la toma de decisiones.
+              </li>
+              <li>
+                Documenté alternativas, procesos y criterios técnicos,
+                colaborando con equipos multidisciplinarios bajo metodologías
+                ágiles.
+              </li>
+            </ul>
           </div>
 
-          {/* Habilidades: 3 columnas (25%) alineadas al inicio del texto */}
-          <div className="md:col-span-3 flex flex-col md:pl-6 border-l border-slate-800/50">
-            <span className="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em] mb-4">
-              Stack & Procesos
+          <div className="flex flex-col border-l border-slate-700 pl-5 md:col-span-3 md:pl-6">
+            <span className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-blue-300">
+              Stack y procesos
             </span>
-            <ul className="space-y-3">
-              {[
-                "React.js",
-                "Node.js",
-                "Análisis de APIs",
-                "Estándares RFC",
-                "Células Ágiles",
-              ].map((skill) => (
+            <ul className="space-y-2.5">
+              {processes.map((process) => (
                 <li
-                  key={skill}
-                  className={`text-[11px] font-medium border-b border-slate-900 pb-1 transition-colors ${
-                    skill === "Node.js"
-                      ? "text-emerald-500 border-emerald-900/30"
-                      : skill === "React.js"
-                        ? "text-blue-400"
-                        : "text-slate-500"
-                  }`}
+                  key={process}
+                  className="border-b border-slate-800 pb-1.5 text-xs font-medium text-slate-300"
                 >
-                  {skill}
+                  {process}
                 </li>
               ))}
             </ul>
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
